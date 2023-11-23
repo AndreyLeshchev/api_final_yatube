@@ -1,46 +1,105 @@
+# **API YA:accessibility:UBE**
 
+### Описание:
 
+API для YaTube представляет собой проект в котором реализованы такие возможности как: создание, чтетие записей и добавление комментариев к ним, а также их редактирование, способность оформления подписок и отслеживание своих подписчиков.
 
-### Как запустить проект: :atom:
+### Используемые технологии:
+* Python
+* Django REST Framework
+* Simple JWT + Djoser
 
-Клонировать : репозиторий и перейти в него в командной строке:
+### Как запустить проект:
 
-```
-git clone https://github.com/AndreyLeshchev/api_final_yatube.git
-```
+* Клонировать репозиторий и перейти в него в командной строке:
 
-```
-cd api_final_yatube
-```
+  ```
+  git clone https://github.com/AndreyLeshchev/api_final_yatube.git
+  ```
+  ```
+  cd api_final_yatube
+  ```
 
-Cоздать и активировать виртуальное окружение:
+* Cоздать и активировать виртуальное окружение:
 
-```
-python3 -m venv env
-```
+  ```
+  python -m venv venv
+  ```
+  ```
+  source venv/Scripts/activate
+  ```
 
-```
-source env/bin/activate
-```
+* Установить зависимости из файла requirements.txt:
 
-Установить зависимости из файла requirements.txt:
+  ```
+  python -m pip install --upgrade pip
+  ```
 
-```
-python3 -m pip install --upgrade pip
-```
+  ```
+  pip install -r requirements.txt
+  ```
 
-```
-pip install -r requirements.txt
-```
+* Выполнить миграции:
 
-Выполнить миграции:
+  ```
+  python manage.py migrate
+  ```
 
-```
-python3 manage.py migrate
-```
+* Запустить проект:
 
-Запустить проект:
+  ```
+  python manage.py runserver
+  ```
+  
+* После запуска проекта будет доступна документация по адресу:
 
-```
-python3 manage.py runserver
-```
+  ```
+  http://127.0.0.1:8000/redoc/
+  ```
+
+### Примеры запросов к API:
+
+* Для получение специального токена необходимо отправить запрос по адресу:
+
+  > POST http://127.0.0.1/api/v1/jwt/create/
+  
+  Пример запроса:
+
+  ```
+  {
+    "username": "user",
+    "password": "password"
+  }
+  ```
+* Для получения всех записей необходимо отправить запрос по адресу:
+  
+  > GET http://127.0.0.1:8000/api/v1/posts/
+
+  Пример ответа:
+  
+  ```
+  {
+      "count": 123,
+      "next": "http://api.example.org/accounts/?offset=400&limit=100",
+      "previous": "http://api.example.org/accounts/?offset=200&limit=100",
+      "results": [
+          {
+              "id": 0,
+              "author": "string",
+              "text": "string",
+              "pub_date": "2021-10-14T20:41:29.648Z",
+              "image": "string",
+              "group": 0
+          }
+      ]
+  }
+  ```
+
+  * Для получения комментариев к посту необходимо отправить запрос по адресу:
+
+    > GET http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/{id}/
+
+    ```
+    
+    ```
+    
