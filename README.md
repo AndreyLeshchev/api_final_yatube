@@ -100,6 +100,14 @@ API для YaTube представляет собой проект в котор
     > GET http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/{id}/
 
     ```
-    
+    [
+        {
+            "id": 0,
+            "author": "string",
+            "text": "string",
+            "created": "2019-08-24T14:15:22Z",
+            "post": 0
+        }
+    ]
     ```
     
