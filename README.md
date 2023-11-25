@@ -112,4 +112,4 @@ API для YaTube представляет собой проект в котор
        }
    ]
 
-Автор - [Андрей Лещев](https://github.com/AndreyLeshchev)
+### Автор - [Андрей Лещев](https://github.com/AndreyLeshchev)
